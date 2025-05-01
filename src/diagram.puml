@@ -1,0 +1,20 @@
+@startuml
+start
+
+:Input a, b, c;
+
+if (a <= 0 or b <= 0 or c <= 0?) then (yes)
+  :Return -2;
+  stop
+else (no)
+  if (a + b <= c or a + c <= b or b + c <= a?) then (yes)
+    :Return -1;
+    stop
+  else (no)
+    :s = (a + b + c) / 2;
+    :Return sqrt(s*(s-a)*(s-b)*(s-c));
+    stop
+  endif
+endif
+
+@enduml
